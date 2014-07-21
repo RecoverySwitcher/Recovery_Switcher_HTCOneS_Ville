@@ -1,0 +1,16 @@
+<@center><b>Recovery In Here/BuildNumber</b></@>
+<@center><b>For Hboot 2.16</b></@>
+<@center><*>TWRP 2.6.1.0</*></@>
+<@center><*>Unofficial TWRP 2.7.1.2 Recovery For AOSP</*></@>
+<@center><*>PhilZ Touch 6.09.6</*></@>
+<@center><*>Magio TWRP Recovery 2.6.1.0</*></@>
+
+<@center><b>Recovery In Here/BuildNumber</b></@>
+<@center><b>For Hboot 2.15</b></@>
+<@center><*>PhilZ Touch 6.12.8</*></@>
+<@center><*>TWRP 2.7.0.0</*></@>
+<@center><*>Unofficial TWRP 2.7.1.2 Recovery For AOSP</*></@>
+
+<@center><b>Recovery In Here/BuildNumber</b></@>
+<@center><b>For Both Hboot's</b></@>
+<@center><*>Stock</*></@>

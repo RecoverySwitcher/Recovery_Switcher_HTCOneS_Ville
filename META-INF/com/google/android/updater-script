@@ -1,0 +1,142 @@
+ui_print("");
+ui_print("");
+ui_print("");
+ui_print("================================");
+ui_print("|Recovery Switcher              |");
+ui_print("|By Flashalot                   |"); 
+ui_print("|For HTC One S only             |");
+ui_print("================================");
+ui_print("");
+ui_print("");
+ui_print("Installing BE PATIENT!");
+########################Mounting System########################
+set_progress(0.1);
+ui_print("Begin Installation...");
+set_progress(0.0);
+assert(
+    getprop("ro.product.device") == "ville"
+);
+
+ui_print("@INFORMATION  ");
+run_program("/sbin/sleep", "2");
+ifelse(
+    getprop("ro.product.device") == "ville",
+    (
+	ui_print("-- Device: ville  /  HTC One S");
+	ui_print("-- Carrier: T-Mobile/Unbraned");
+	ui_print("");
+    )
+);
+set_progress(0.025);
+ui_print("WARNING: PULL BATTERY OR HOLD DOWN POWER DOWN BUTTON");
+ui_print("IF DEVICE IDENTIFIED IS WRONG - YOU HAVE 20 SECONDS");
+ui_print("");
+run_program("/sbin/sleep", "20");
+set_progress(0.050);
+ui_print("");
+ui_print("");
+##########################Installation##########################
+ui_print("@Installing Recovery");
+ui_print("");
+ui_print("");
+set_progress(0.10);
+#########################Recoverys 2.16##########################
+set_progress(0.54);
+if
+    file_getprop("/tmp/aroma-data/recovery.prop","item.1.1") == "1"
+then
+ui_print("@Installing TWRP Recovery");
+ui_print("Installing TWRP Recovery");
+package_extract_file("recovery/twrp/recovery.img", "/tmp/recovery.img");
+run_program("/sbin/busybox", "dd", "if=/tmp/recovery.img", "of=/dev/block/mmcblk0p22");
+delete("/tmp/recovery.img");
+endif;
+
+set_progress(0.54);
+if
+    file_getprop("/tmp/aroma-data/recovery.prop","item.1.2") == "1"
+then
+ui_print("@Installing Unofficial TWRP Recovery For AOSP");
+ui_print("Installing Unofficial TWRP Recovery For AOSP");
+package_extract_file("recovery/twrpun/recovery.img", "/tmp/recovery.img");
+run_program("/sbin/busybox", "dd", "if=/tmp/recovery.img", "of=/dev/block/mmcblk0p22");
+delete("/tmp/recovery.img");
+endif;
+
+set_progress(0.54);
+if
+    file_getprop("/tmp/aroma-data/recovery.prop","item.1.3") == "1"
+then
+ui_print("@Installing PhilZ Touch Recovery");
+ui_print("Installing PhilZ Touch Recovery");
+package_extract_file("recovery/philz/recovery.img", "/tmp/recovery.img");
+run_program("/sbin/busybox", "dd", "if=/tmp/recovery.img", "of=/dev/block/mmcblk0p22");
+delete("/tmp/recovery.img");
+endif;
+
+set_progress(0.54);
+if
+    file_getprop("/tmp/aroma-data/recovery.prop","item.1.4") == "1"
+then
+ui_print("@Installing Magio TWRP Recovery");
+ui_print("Installing Magio TWRP Recovery");
+package_extract_file("recovery/magio/recovery.img", "/tmp/recovery.img");
+run_program("/sbin/busybox", "dd", "if=/tmp/recovery.img", "of=/dev/block/mmcblk0p22");
+delete("/tmp/recovery.img");
+endif;
+
+
+#########################Recoverys 2.15##########################
+
+set_progress(0.54);
+if
+    file_getprop("/tmp/aroma-data/recovery.prop","item.2.1") == "1"
+then
+ui_print("@Installing TWRP Recovery");
+ui_print("Installing TWRP Recovery");
+package_extract_file("recovery/2_15/twrp/recovery.img", "/tmp/recovery.img");
+run_program("/sbin/busybox", "dd", "if=/tmp/recovery.img", "of=/dev/block/mmcblk0p22");
+delete("/tmp/recovery.img");
+endif;
+
+
+set_progress(0.54);
+if
+    file_getprop("/tmp/aroma-data/recovery.prop","item.2.2") == "1"
+then
+ui_print("@Installing PhilZ Touch Recovery");
+ui_print("Installing PhilZ Touch Recovery");
+package_extract_file("recovery/2_15/philz/recovery.img", "/tmp/recovery.img");
+run_program("/sbin/busybox", "dd", "if=/tmp/recovery.img", "of=/dev/block/mmcblk0p22");
+delete("/tmp/recovery.img");
+endif;
+
+set_progress(0.54);
+if
+    file_getprop("/tmp/aroma-data/recovery.prop","item.2.3") == "1"
+then
+ui_print("@Installing Unofficial TWRP Recovery For AOSP");
+ui_print("Installing Unofficial TWRP Recovery For AOSP");
+package_extract_file("recovery/2_15/twrpaosp/recovery.img", "/tmp/recovery.img");
+run_program("/sbin/busybox", "dd", "if=/tmp/recovery.img", "of=/dev/block/mmcblk0p22");
+delete("/tmp/recovery.img");
+endif;
+
+
+set_progress(0.54);
+if
+    file_getprop("/tmp/aroma-data/recovery.prop","item.3.1") == "1"
+then
+ui_print("@Installing Stock Recovery");
+ui_print("Installing Stock Recovery");
+package_extract_file("recovery/stock/recovery.img", "/tmp/recovery.img");
+run_program("/sbin/busybox", "dd", "if=/tmp/recovery.img", "of=/dev/block/mmcblk0p22");
+delete("/tmp/recovery.img");
+endif;
+##########################End of AROMA##########################
+set_progress(0.6);
+ui_print("@Recovery Installed");
+###########################Unmounting###########################
+set_progress(1.0);
+ui_print("Done!!!!");
+ui_print("Install complete");
